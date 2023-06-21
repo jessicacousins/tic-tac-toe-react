@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+html {
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: #fff0f3;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  border: 3px solid #ff4d6d;
+  border-radius: 10px;
+  font-family: "Gasoek One", sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+  color: rgb(94, 3, 29);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover {
+  color: rgb(128, 15, 47);
+  background-color: rgb(255, 179, 193);
+  text-shadow: 0 0 10px hsl(0, 0%, 100%), 0 0 20px hsl(0, 0%, 100%),
+    0 0 40px hsl(0, 0%, 100%);
+  box-shadow: 0 0 0 3px rgba(255, 240, 243, 0.3);
+}
+
+.game-board {
+  width: 650px;
+  height: 650px;
+  margin-bottom: 120px;
+  background-color: rgb(255, 204, 213);
+  color: rgb(89, 13, 34);
+  border: 2px solid #0b0d0f;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  font-family: "Shrikhand", cursive;
+  letter-spacing: 4px;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2), 2px 0 4px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.2), -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.grid-row {
+  border-radius: 9px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(175, 70, 70);
+}
+
+.block {
+  border-radius: 6px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 20em;
+}
+
+.red {
+  transform: rotate(-360deg);
+  background-image: conic-gradient(
+    #7fdeff 0deg,
+    #c4c7ff 90deg,
+    #eabaf6 130deg,
+    #7fdeff 180deg,
+    #7fdeff 180deg,
+    #eabaf6 270deg,
+    #c4c7ff 310deg,
+    #7fdeff 360deg
+  );
+  transition: transform 2s;
+}
+
+.white {
+  transform: rotate(-360deg);
+  background-image: conic-gradient(
+    #ea84c9 0deg,
+    #ea84c9 90deg,
+    #ef94d5 130deg,
+    #f9b4ed 180deg,
+    #f9b4ed 180deg,
+    #ef94d5 270deg,
+    #ea84c9 310deg,
+    #ea84c9 360deg
+  );
+  transition: transform 2s;
+}
+
+.flower {
+  color: rgb(255, 240, 243);
+  background-color: rgb(255, 143, 163);
+}
+
+.title-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gasoek One", sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    to right,
+    hsl(349, 100%, 65%) 0,
+    hsl(349, 40%, 100%) 5%,
+    hsl(349, 100%, 65%) 20%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glimmer 5s infinite linear;
+  margin-top: 30px;
+}
+
+@keyframes glimmer {
+  0% {
+    background-position: 0px;
   }
-  to {
-    transform: rotate(360deg);
+  60% {
+    background-position: 650px;
   }
+  100% {
+    background-position: 650px;
+  }
+}
+
+#turn {
+  color: hsl(349, 100%, 65%);
+  font-size: 2rem;
+}
+
+.winnerinfo {
+  padding-bottom: 20px;
 }
